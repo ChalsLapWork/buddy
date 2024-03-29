@@ -1,11 +1,20 @@
 #include "PE_Types.h"
 #include "system.h"
 #include "queue.h"
+#include "shell.h"
 
 
 
 
+byte buffer1[SIZE_BUFFER1];
 
+
+void init_queue(void) { 
+
+	init_FIFO_General_1byte(&shell.input,&buffer1[0],SIZE_BUFFER1);
+
+
+}//fin queueu+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 void init_FIFO_General_1byte(struct _FIFO_1byte_* s, unsigned char* h, unsigned char size) {//FIFO_SER_KEYPAD[SIZE_SER_KEYPAD];
@@ -46,7 +55,8 @@ unsigned char FIFO_general_1byte_push(unsigned char dato, struct _FIFO_1byte_* s
 
 unsigned char FIFO_general_1byte_pop(unsigned char* dato, struct _FIFO_1byte_* s) {
 	byte ret = 0;
-	byte* pop0, * push0, ncount0;
+	byte* pop0, * push0;
+	unsigned short int ncount0;
 
 	pop0 = s->pop;
 	push0 = s->push;

@@ -2,12 +2,15 @@
 #include <stdio.h>
 #include "system.h"
 #include "SistemaOperativo.h"
+#include "queue.h"
+#include "shell.h"
+#include <conio.h>
 
 
 /* display la memoria particionada como se indica
  */
 extern struct _MemoManagement_ mm;
-
+extern byte buffer1[SIZE_BUFFER1];
 
 /* desplegar la barra fragmentada donde se ven los espacions vacios
   y el bloque de pointers a los nodos de bloques de memoria libre*/
@@ -48,3 +51,38 @@ byte ordenarNodos_v2(struct _Nodo_ *m,struct _Nodo_ *p) {
 
 return 0;
 }//fin de ordenamiento de memo managementy lo ordenan al array p
+
+
+DWORD WINAPI procesador_de_comados(LPVOID in) {
+	byte ret = 1,i;
+	byte estado=0;
+	byte tokens[TOKENS_MAX];
+	printf("\nSistema Monitor:");
+	Sleep(300);
+	printf("ok");
+	while (ret) {
+		switch (estado) {
+		case 1:printf("\nIngrese Comando"); estado++; break;
+		case 2:printf(":"); estado++; break;
+		case 3:if (shell.sem == ROJO)estado++;break;
+		case 4:estado++; break;
+		case 5:if(Analisis_lexico(&tokens[0])) estado++;
+			  else { estado = 99; }break;
+
+		case 99:shell.sem = 0;
+			     Sleep(10);
+				 for (i = 0; i < SIZE_BUFFER1; i++) {
+					 if (buffer1[i] == 0) break;
+					 printf("%c", buffer1[i]);}
+			     printf("\nNo se reconoce como comando interno o externo, programa ejecutable.");
+			    shell.input.resetFIFO(&shell.input,&buffer1[0],SIZE_BUFFER1);
+				ResumeThread((HANDLE)in);
+				estado = 0; 
+				break;
+		case 100:ret = 0; break;
+		default:estado = 1; break;	}//fin switch
+	}//fin while
+ 	 
+
+	return 0;
+}//fin procesador de comandos++++++++++++++++++++++++++++++++++++++++

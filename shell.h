@@ -3,17 +3,22 @@
 #define _SHELL_H_
 
 #include "PE_Types.h"
+//#include "queue.h"
 
 
-#define PROMPT_SIZE 100
+#define  SIZE_TOKEN_STRING 20//
+#define  TOKENS_MAX   5 //maximo numero de otkens
+
+byte Analisis_lexico(byte* token);
 
 
-typedef struct {
-	byte prompt[PROMPT_SIZE];
-	byte sem;//semaforo para saber si terminaron de escribir el comando
-
-}consola;
-
+struct _Num_Tokens {
+	byte Num_d_Tokens;
+	byte *indexToken[TOKENS_MAX];//indice donde empieza el token
+	byte sizeToken[TOKENS_MAX];//tamaño del token
+	byte comando;
+	byte parametros[TOKENS_MAX];
+};//numero de tokens
 
 
 

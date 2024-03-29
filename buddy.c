@@ -8,19 +8,27 @@
 #include "SistemaOperativo.h"
 #include <windows.h>
 #include <conio.h>
+#include "queue.h"
+
 
 struct _MemoManagement_ mm;
 
 DWORD WINAPI ThreadFunc(void* data) {
 	byte c;
+	//DWORD r = 1;
 	// Do stuff.  This will be the first function called on the new thread.
 	// When this function returns, the thread goes away.  See MSDN for more details.
-	printf(" \n estoy en thread \n");
+	printf("\nThread:OK");
 	while (!_kbhit()) {
+        
 		c = _getch();
-		if (c == 13)
+		if (c == 13) {
+			shell.sem = ROJO;
 			printf("\n");
-		else printf("%c",c);}
+			shell.input.appendByte(c, &shell.input);
+			SuspendThread(GetCurrentThread());}
+		else { printf("%c", c);
+			   shell.input.appendByte(c,&shell.input);}}
 	return 1;
 }//fin de thread++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -28,16 +36,22 @@ DWORD WINAPI ThreadFunc(void* data) {
 int main(){
 byte procMemo[PROC_MAX] = { 2,1,2,3,4,6,8,25,55,8,12,11,2,3,4,33,10,50,2,3,4,5,6,8,15 };
 
-printf("Test del Algorithmo Buddy v0.2.9\n");
+printf("Test del Algorithmo Buddy v0.2.21\n");
+init_queue();
 init_memoria_de_Procs();
 HANDLE thread = CreateThread(NULL, 0, ThreadFunc, NULL, 0, NULL);
+HANDLE thread2 = CreateThread(NULL, 0, procesador_de_comados,(LPVOID)thread, 0, NULL);
 WaitForSingleObject(thread, INFINITE);
+shell.h = thread;
+WaitForSingleObject(procesador_de_comados, INFINITE);
 
 
+//procesador_de_comados(thread);
 
+printf(" \nfin del programa");
 //displayFragmentacion(mm);
-CloseHandle(thread);
-}
+//CloseHandle(thread);
+}//main+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
