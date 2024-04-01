@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "buddy", "buddy.vcxproj", "{9295FAC4-4502-477C-9981-7BF0283AF8D4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Console", "buddy.vcxproj", "{9295FAC4-4502-477C-9981-7BF0283AF8D4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bucket_Sort", "..\Bucket_Sort\Bucket_Sort.vcxproj", "{A4513BD7-702A-4813-B714-0C2F654783F5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "buddy_Algorithm", "..\buddy_Algorithm\buddy_Algorithm.vcxproj", "{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,22 @@ Global
 		{9295FAC4-4502-477C-9981-7BF0283AF8D4}.Release|x64.Build.0 = Release|x64
 		{9295FAC4-4502-477C-9981-7BF0283AF8D4}.Release|x86.ActiveCfg = Release|Win32
 		{9295FAC4-4502-477C-9981-7BF0283AF8D4}.Release|x86.Build.0 = Release|Win32
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Debug|x64.ActiveCfg = Debug|x64
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Debug|x64.Build.0 = Debug|x64
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Debug|x86.ActiveCfg = Debug|Win32
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Debug|x86.Build.0 = Debug|Win32
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Release|x64.ActiveCfg = Release|x64
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Release|x64.Build.0 = Release|x64
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Release|x86.ActiveCfg = Release|Win32
+		{A4513BD7-702A-4813-B714-0C2F654783F5}.Release|x86.Build.0 = Release|Win32
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Debug|x64.ActiveCfg = Debug|x64
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Debug|x64.Build.0 = Debug|x64
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Debug|x86.ActiveCfg = Debug|Win32
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Debug|x86.Build.0 = Debug|Win32
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Release|x64.ActiveCfg = Release|x64
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Release|x64.Build.0 = Release|x64
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Release|x86.ActiveCfg = Release|Win32
+		{F47EBB37-A93F-4EC2-9195-1A97BDFA1887}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

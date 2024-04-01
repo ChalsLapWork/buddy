@@ -24,6 +24,7 @@
     <ProjectGuid>{9295fac4-4502-477c-9981-7bf0283af8d4}</ProjectGuid>
     <RootNamespace>buddy</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Console</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
