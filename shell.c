@@ -24,18 +24,18 @@ return 0;
 
 /* obtener el comando */
 void getComando(struct _Num_Tokens *ntk) {
-	byte Num_de_CMD = 4;//numero de comandos
-	const byte create[] = {"create"  };
-	const byte   kill[] = { "kill"   };
-	const byte defrag[] = { "defrag" };
-	const byte resetproc[] = { "resetproc" };
-	byte *comands[] = { &create[0],     &kill[0],  &defrag[0],
-					    &resetproc[0]        };
-	byte sizeComands[] = { 6,4,6,9 };
+byte Num_de_CMD = 4,i;//numero de comandos
+const byte create[] = {"create"  };
+const byte   kill[] = { "kill"   };
+const byte defrag[] = { "defrag" };
+const byte resetproc[] = { "resetproc" };
+byte *comands[] = { &create[0],     &kill[0],  &defrag[0],
+					&resetproc[0]        };
+byte sizeComands[] = { 6,4,6,9 };
 
 	for (i = 0; i < Num_de_CMD; i++) {
-		if (ntk->sizeToken[0] == sizeComands[i])
-			if (stringcompare(comands[0], ntk->indexToken[0], ntk->sizeToken[0])) {}
+	  if (ntk->sizeToken[0] == sizeComands[i])
+		if (stringcompare(comands[0], ntk->indexToken[0], ntk->sizeToken[0])) {}
 	}
 }//fin de get comando++++++++++++++++++++++++++++++++++++++++++++++
 
